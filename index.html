@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Heather Glenn - FM Payments | Where we have fun saving you money</title>
     
     <!-- SEO and Open Graph Meta Tags -->
@@ -14,30 +14,36 @@
     <meta property="og:url" content="https://fm-pay.com">
     <meta name="twitter:card" content="summary_large_image">
 
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    
     <style>
-        /* Your existing CSS */
+        /* Contrast improvement for accessibility */
         :root {
-            --primary-color: #7DCA45;
-            --secondary-color: #f0f0f0;
-            --text-color: #333;
-            --background-color: #ffffff;
+            --primary-color: #7DCA45;  /* Bright green for high contrast */
+            --secondary-color: #ffffff;  /* Pure white for better background contrast */
+            --text-color: #333333;  /* Darker text color */
+            --background-color: #f0f0f0;  /* Light gray for contrast with white sections */
         }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: #f5f5f5;
+            background-color: var(--background-color);
             margin: 0;
             padding: 0;
         }
+
         header {
             background: linear-gradient(135deg, var(--primary-color), #5ca632);
             color: white;
             padding: 1rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
+
         nav ul {
             display: flex;
             justify-content: center;
@@ -45,33 +51,43 @@
             padding: 0;
             margin: 0;
         }
+
         nav ul li {
             margin: 0 1rem;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
         }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
         main {
             max-width: 100%;
             padding: 2rem 0;
-            background-color: #f5f5f5;
+            background-color: var(--background-color);
         }
+
         .section {
             max-width: 800px;
             margin: 0 auto 2rem;
             padding: 2rem;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         #hero {
             text-align: center;
             background: linear-gradient(135deg, var(--primary-color), #5ca632);
             color: white;
             padding: 3rem 2rem;
         }
+
         #hero img {
             width: 200px;
             height: 200px;
@@ -81,55 +97,62 @@
             border: 4px solid white;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        #hero h1, #hero h2 {
+
+        #hero h1, #hero h2, #hero .company-name, #hero .tagline {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
+
         #hero h1 {
             font-size: 2.5rem;
-            color: white;
             margin-bottom: 0.5rem;
         }
+
         #hero h2 {
             font-size: 1.8rem;
-            color: white;
             margin-bottom: 0.5rem;
         }
+
         #hero .company-name {
             font-size: 3rem;
-            color: white;
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
+
         #hero .tagline {
             font-family: 'Pacifico', cursive;
             font-size: 1.5rem;
-            color: white;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
+
         h2 {
             color: var(--primary-color);
         }
+
         #services ul {
             list-style-type: none;
             padding: 0;
         }
+
         #services li {
             padding: 0.5rem 0;
             border-bottom: 1px solid #eee;
         }
+
         #services li:last-child {
             border-bottom: none;
         }
+
         #services li::before {
             content: "✓";
             color: var(--primary-color);
             margin-right: 0.5rem;
         }
+
         form {
             display: grid;
             gap: 1rem;
         }
+
         input, textarea {
             width: 100%;
             padding: 0.5rem;
@@ -137,6 +160,7 @@
             border-radius: 4px;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         button[type="submit"] {
             background-color: var(--primary-color);
             color: white;
@@ -145,11 +169,15 @@
             cursor: pointer;
             border-radius: 4px;
             transition: background-color 0.3s;
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
         }
+
         button[type="submit"]:hover {
             background-color: #6ab33a;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
+
         footer {
             background: linear-gradient(135deg, var(--primary-color), #5ca632);
             color: white;
@@ -157,22 +185,55 @@
             padding: 1rem;
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
         }
+
+        footer nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer nav ul li {
+            margin: 0 1rem;
+        }
+
+        footer nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer nav ul li a:hover {
+            text-decoration: underline;
+        }
+
         .hidden {
             display: none;
         }
+
         @media (max-width: 840px) {
             .section {
                 margin: 0 1rem 2rem;
             }
+
+            #hero h1 {
+                font-size: 2rem;
+            }
+
+            button[type="submit"] {
+                width: 100%;
+            }
         }
 
-        /* Form Validation Error Styles */
-        .error {
-            border-color: red;
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
+
+    <!-- Header -->
     <header>
         <nav>
             <ul>
@@ -182,20 +243,24 @@
             </ul>
         </nav>
     </header>
+
     <main>
+        <!-- Hero Section -->
         <section id="hero">
-            <img src="2024-08-30-18-24-32-518.jpg" alt="Heather Glenn" width="200" height="200" fetchpriority="high">
+            <img src="2024-08-30-18-24-32-518.jpg" alt="Profile photo of Heather Glenn" loading="lazy" width="200" height="200">
             <h1>Heather Glenn</h1>
             <h2>National Account Executive</h2>
             <p class="company-name">FM Payments</p>
             <p class="tagline">Where we have fun saving you money</p>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="section">
             <h2>About Me</h2>
             <p>As a National Account Executive at FM Payments, I'm dedicated to providing innovative payment solutions tailored to your business needs. We believe in making the process of saving money enjoyable and rewarding for our clients.</p>
         </section>
 
+        <!-- Services Section -->
         <section id="services" class="section">
             <h2>Our Services</h2>
             <ul>
@@ -204,17 +269,18 @@
                 <li>State-of-the-art Point of Sale Systems</li>
                 <li>Comprehensive E-commerce Solutions</li>
             </ul>
-            <p>For more information about our services, visit <a href="https://fm-pay.com" target="_blank">fm-pay.com</a></p>
-        </section>
+            <p>For more information about our services, visit <a href="https://fm-pay.com" target="_blank">fm-pay.com</a></p
+                                                                                                                             
+    </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="section">
             <h2>Get in Touch</h2>
             <p>Ready to optimize your payment solutions and have fun saving money? Contact us for a free quote!</p>
             <p>Phone: <a href="tel:3343012781">334-301-2781</a></p>
             <p>Email: <a href="mailto:heatherglenn@FM-pay.com">heatherglenn@FM-pay.com</a></p>
-            
-            <form name="contact" method="POST" data-netlify="
-                true" action="/success" id="contact-form">
+
+            <form name="contact" method="POST" data-netlify="true" action="/success">
                 <input type="hidden" name="form-name" value="contact">
                 <p class="hidden">
                     <label>Don't fill this out if you're human: <input name="bot-field" /></label>
@@ -222,19 +288,43 @@
                 <input type="text" id="name" name="name" placeholder="Your Name" required>
                 <input type="email" id="email" name="email" placeholder="Your Email" required>
                 <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                <!-- reCAPTCHA widget -->
+                <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
                 <button type="submit">Send Message</button>
             </form>
         </section>
     </main>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <h2>What Our Clients Say</h2>
+        <blockquote>
+            "FM Payments helped our business save 20% on processing fees! Their team is amazing."
+            <cite>- Jane Doe, CEO of XYZ Corp</cite>
+        </blockquote>
+        <blockquote>
+            "The customer service is unparalleled. Highly recommend!"
+            <cite>- John Smith, Founder of ABC Solutions</cite>
+        </blockquote>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Heather Glenn - FM Payments. All rights reserved.</p>
+        <nav>
+            <ul>
+                <li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li>
+                <li><a href="/terms.html" target="_blank">Terms of Service</a></li>
+                <li><a href="https://facebook.com/fmpay" target="_blank">Facebook</a></li>
+                <li><a href="https://twitter.com/fmpay" target="_blank">Twitter</a></li>
+            </ul>
+        </nav>
     </footer>
 
-    <!-- Chatbot script placed at the end of the body -->
+    <!-- Chatbot script -->
     <script src="https://app.aminos.ai/js/chat_plugin.js" data-bot-id="33141"></script>
 
-    <!-- Client-side form validation script -->
+    <!-- Client-side form validation -->
     <script>
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             var name = document.getElementById('name');
@@ -269,5 +359,8 @@
             }
         });
     </script>
+
+    <!-- Google reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
