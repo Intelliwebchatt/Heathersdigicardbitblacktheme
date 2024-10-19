@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags and Fonts -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Heather Glenn - FM Payments | Where we have fun saving you money</title>
-    
-    <!-- SEO and Open Graph Meta Tags -->
     <meta name="description" content="Heather Glenn, National Account Executive at FM Payments, specializes in cutting-edge payment solutions to save your business money.">
     <meta name="keywords" content="Heather Glenn, FM Payments, Payment Processing, Merchant Services, Point of Sale, E-commerce Solutions">
     <meta property="og:title" content="Heather Glenn - FM Payments | Where we have fun saving you money">
@@ -14,34 +13,55 @@
     <meta property="og:url" content="https://fm-pay.com">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+
     <style>
-        /* Contrast improvement for accessibility */
+        /* Root variables */
         :root {
-            --primary-color: #7DCA45;  /* Bright green for high contrast */
-            --secondary-color: #ffffff;  /* Pure white for better background contrast */
-            --text-color: #333333;  /* Darker text color */
-            --background-color: #f0f0f0;  /* Light gray for contrast with white sections */
+            --primary-color: #7DCA45;  /* FM Payments' bright green */
+            --secondary-color: #ffffff;  /* White for backgrounds */
+            --accent-color: #5ca632;  /* Darker green for gradients */
+            --text-color: #333333;  /* Dark text for readability */
+            --background-color: #E8F5E9;  /* Light green background from SVG */
+            --card-background: rgba(255, 255, 255, 0.8);
+            --gradient-1: linear-gradient(135deg, #7DCA45, #5ca632);
+            --gradient-2: linear-gradient(135deg, #5ca632, #7DCA45);
+        }
+
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
-            margin: 0;
-            padding: 0;
+            overflow-x: hidden;
+            /* Set the SVG background */
+            background-image: url('background.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
         }
 
+        /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary-color), #5ca632);
+            background: var(--gradient-1);
             color: white;
             padding: 1rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             position: relative;
+            z-index: 3;
         }
 
         nav ul {
@@ -66,68 +86,138 @@
             text-decoration: underline;
         }
 
+        /* Hero Section */
+        .hero-container {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', sans-serif;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--text-color);
+            z-index: 2;
+            padding: 2rem;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: slideUp 1s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: slideUp 1s forwards 0.3s;
+        }
+
+        .company-name {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: slideUp 1s forwards 0.6s;
+        }
+
+        .tagline {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideUp 1s forwards 0.9s;
+        }
+
+        .hero-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: var(--gradient-2);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s;
+            opacity: 0;
+            animation: slideUp 1s forwards 1.2s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .hero-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .hero-button:hover::before {
+            opacity: 1;
+        }
+
+        .hero-button:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Main Content */
         main {
             max-width: 100%;
             padding: 2rem 0;
-            background-color: var(--background-color);
+            background-color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 1;
         }
 
         .section {
             max-width: 800px;
             margin: 0 auto 2rem;
             padding: 2rem;
-            background-color: white;
+            background-color: var(--card-background);
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        #hero {
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary-color), #5ca632);
-            color: white;
-            padding: 3rem 2rem;
-        }
-
-        #hero img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            border: 4px solid white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        #hero h1, #hero h2, #hero .company-name, #hero .tagline {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        #hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        #hero h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        #hero .company-name {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        #hero .tagline {
-            font-family: 'Pacifico', cursive;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
         h2 {
             color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
         }
 
+        /* Services Section */
         #services ul {
             list-style-type: none;
             padding: 0;
@@ -136,6 +226,7 @@
         #services li {
             padding: 0.5rem 0;
             border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
         }
 
         #services li:last-child {
@@ -148,6 +239,7 @@
             margin-right: 0.5rem;
         }
 
+        /* Contact Form */
         form {
             display: grid;
             gap: 1rem;
@@ -165,12 +257,11 @@
             background-color: var(--primary-color);
             color: white;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 1rem 2rem;
             cursor: pointer;
             border-radius: 4px;
             transition: background-color 0.3s;
             font-size: 1.1rem;
-            padding: 1rem 2rem;
         }
 
         button[type="submit"]:hover {
@@ -178,12 +269,15 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
+        /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--primary-color), #5ca632);
+            background: var(--gradient-1);
             color: white;
             text-align: center;
             padding: 1rem;
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
         }
 
         footer nav ul {
@@ -211,28 +305,33 @@
             display: none;
         }
 
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Design */
         @media (max-width: 840px) {
-            .section {
-                margin: 0 1rem 2rem;
+            .hero-title {
+                font-size: 2.5rem;
             }
 
-            #hero h1 {
-                font-size: 2rem;
+            .hero-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
             }
 
             button[type="submit"] {
                 width: 100%;
             }
         }
-
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 <body>
-
     <!-- Header -->
     <header>
         <nav>
@@ -244,16 +343,20 @@
         </nav>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero">
-            <img src="2024-08-30-18-24-32-518.jpg" alt="Profile photo of Heather Glenn" loading="lazy" width="200" height="200">
-            <h1>Heather Glenn</h1>
-            <h2>National Account Executive</h2>
+    <!-- Hero Section -->
+    <div class="hero-container">
+        <div class="hero-content">
+            <img src="https://fm-pay.com/path-to-heather-image.jpg" alt="Profile photo of Heather Glenn" loading="lazy" width="200" height="200" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 4px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            <h1 class="hero-title">Heather Glenn</h1>
+            <p class="hero-subtitle">National Account Executive</p>
             <p class="company-name">FM Payments</p>
             <p class="tagline">Where we have fun saving you money</p>
-        </section>
+            <a href="#contact" class="hero-button">Get in Touch</a>
+        </div>
+    </div>
 
+    <!-- Main Content -->
+    <main>
         <!-- About Section -->
         <section id="about" class="section">
             <h2>About Me</h2>
@@ -269,16 +372,15 @@
                 <li>State-of-the-art Point of Sale Systems</li>
                 <li>Comprehensive E-commerce Solutions</li>
             </ul>
-            <p>For more information about our services, visit <a href="https://fm-pay.com" target="_blank">fm-pay.com</a></p
-                                                                                                                             
-    </section>
+            <p>For more information about our services, visit <a href="https://fm-pay.com" target="_blank" style="color: var(--primary-color);">fm-pay.com</a></p>
+        </section>
 
         <!-- Contact Section -->
         <section id="contact" class="section">
             <h2>Get in Touch</h2>
             <p>Ready to optimize your payment solutions and have fun saving money? Contact us for a free quote!</p>
-            <p>Phone: <a href="tel:3343012781">334-301-2781</a></p>
-            <p>Email: <a href="mailto:heatherglenn@FM-pay.com">heatherglenn@FM-pay.com</a></p>
+            <p>Phone: <a href="tel:3343012781" style="color: var(--primary-color);">334-301-2781</a></p>
+            <p>Email: <a href="mailto:heatherglenn@FM-pay.com" style="color: var(--primary-color);">heatherglenn@FM-pay.com</a></p>
 
             <form name="contact" method="POST" data-netlify="true" action="/success">
                 <input type="hidden" name="form-name" value="contact">
@@ -293,20 +395,20 @@
                 <button type="submit">Send Message</button>
             </form>
         </section>
-    </main>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section">
-        <h2>What Our Clients Say</h2>
-        <blockquote>
-            "FM Payments helped our business save 20% on processing fees! Their team is amazing."
-            <cite>- Jane Doe, CEO of XYZ Corp</cite>
-        </blockquote>
-        <blockquote>
-            "The customer service is unparalleled. Highly recommend!"
-            <cite>- John Smith, Founder of ABC Solutions</cite>
-        </blockquote>
-    </section>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section">
+            <h2>What Our Clients Say</h2>
+            <blockquote>
+                "FM Payments helped our business save 20% on processing fees! Their team is amazing."
+                <cite>- Jane Doe, CEO of XYZ Corp</cite>
+            </blockquote>
+            <blockquote>
+                "The customer service is unparalleled. Highly recommend!"
+                <cite>- John Smith, Founder of ABC Solutions</cite>
+            </blockquote>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -321,12 +423,25 @@
         </nav>
     </footer>
 
-    <!-- Chatbot script -->
-    <script src="https://app.aminos.ai/js/chat_plugin.js" data-bot-id="33141"></script>
+    <!-- Floating Chat Icon -->
+    <div class="floating-chat" onclick="window.location.href='#contact'">
+        💬
+    </div>
 
-    <!-- Client-side form validation -->
+    <!-- Scripts -->
     <script>
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Client-side form validation
+        document.querySelector('form[name="contact"]').addEventListener('submit', function(event) {
             var name = document.getElementById('name');
             var email = document.getElementById('email');
             var message = document.getElementById('message');
@@ -359,7 +474,8 @@
             }
         });
     </script>
-
+    <!-- Chatbot script -->
+    <script defer src="https://app.aminos.ai/js/chat_plugin.js" data-bot-id="33141"></script>
     <!-- Google reCAPTCHA script -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
