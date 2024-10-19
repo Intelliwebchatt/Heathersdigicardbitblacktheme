@@ -46,12 +46,18 @@
             color: var(--text-color);
             background-color: var(--background-color);
             overflow-x: hidden;
-            /* Set the SVG background */
-            background-image: url('background.svg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
+            position: relative;
+        }
+
+        /* Background SVG */
+        .background-svg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
         }
 
         /* Header */
@@ -96,6 +102,7 @@
             background: rgba(255, 255, 255, 0.9);
             font-family: 'Poppins', sans-serif;
             z-index: 1;
+            padding: 2rem;
         }
 
         .hero-content {
@@ -332,6 +339,70 @@
     </style>
 </head>
 <body>
+    <!-- Background SVG -->
+    <div class="background-svg">
+        <!-- Place your SVG code here -->
+        <!-- Ensure the SVG fills the entire container -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+            <defs>
+                <!-- Dollar symbol pattern -->
+                <pattern id="money-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+                    <!-- Larger dollar signs at different positions and sizes -->
+                    <text x="20" y="60" font-size="48" fill="#2E7D32" opacity="0.3">$</text>
+                    <text x="80" y="100" font-size="56" fill="#388E3C" opacity="0.2">$</text>
+                    <text x="40" y="40" font-size="42" fill="#43A047" opacity="0.25">$</text>
+                </pattern>
+                
+                <!-- Animation for floating effect -->
+                <animateTransform
+                    xlink:href="#money-pattern"
+                    attributeName="patternTransform"
+                    type="translate"
+                    from="0 0"
+                    to="0 -120"
+                    dur="15s"
+                    repeatCount="indefinite"/>
+            </defs>
+
+            <!-- Background rectangle with gradient -->
+            <rect width="100%" height="100%" fill="#E8F5E9"/>
+            
+            <!-- Animated dollar symbols layer -->
+            <rect width="100%" height="100%" fill="url(#money-pattern)">
+                <animate
+                    attributeName="opacity"
+                    values="0.6;0.8;0.6"
+                    dur="4s"
+                    repeatCount="indefinite"/>
+            </rect>
+
+            <!-- Floating dollar signs for additional visual interest -->
+            <text x="50" y="50" font-size="64" fill="#81C784" opacity="0.3">$
+                <animate
+                    attributeName="y"
+                    values="50;30;50"
+                    dur="3s"
+                    repeatCount="indefinite"/>
+            </text>
+            
+            <text x="350" y="150" font-size="72" fill="#66BB6A" opacity="0.2">$
+                <animate
+                    attributeName="y"
+                    values="150;120;150"
+                    dur="4s"
+                    repeatCount="indefinite"/>
+            </text>
+            
+            <text x="200" y="300" font-size="68" fill="#4CAF50" opacity="0.25">$
+                <animate
+                    attributeName="y"
+                    values="300;270;300"
+                    dur="5s"
+                    repeatCount="indefinite"/>
+            </text>
+        </svg>
+    </div>
+
     <!-- Header -->
     <header>
         <nav>
@@ -422,11 +493,6 @@
             </ul>
         </nav>
     </footer>
-
-    <!-- Floating Chat Icon -->
-    <div class="floating-chat" onclick="window.location.href='#contact'">
-        💬
-    </div>
 
     <!-- Scripts -->
     <script>
