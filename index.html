@@ -132,10 +132,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.7); /* slightly darkened background */
             font-family: 'Poppins', sans-serif;
             z-index: 1;
             padding: 2rem;
+        }
+
+        .hero-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Black overlay with 30% opacity */
+            z-index: -1;
         }
 
         .hero-content {
@@ -241,7 +252,9 @@
         main {
             max-width: 100%;
             padding: 2rem 0;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.8
+
+                   );
             position: relative;
             z-index: 1;
         }
@@ -405,11 +418,11 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
             <defs>
                 <pattern id="money-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-                    <text x="20" y="60" font-size="48" fill="#7DCA45" opacity="0.3">$</text>
-                    <text x="80" y="100" font-size="56" fill="#7DCA45" opacity="0.2">$</text>
-                    <text x="40" y="40" font-size="42" fill="#7DCA45" opacity="0.25">$</text>
+                    <text x="20" y="60" font-size="48" fill="#7DCA45" opacity="0.5">$</text>
+                    <text x="80" y="100" font-size="56" fill="#7DCA45" opacity="0.4">$</text>
+                    <text x="40" y="40" font-size="42" fill="#7DCA45" opacity="0.45">$</text>
                 </pattern>
-                
+
                 <animateTransform
                     xlink:href="#money-pattern"
                     attributeName="patternTransform"
@@ -421,32 +434,32 @@
             </defs>
 
             <rect width="100%" height="100%" fill="#000000"/>
-            
+
             <rect width="100%" height="100%" fill="url(#money-pattern)">
                 <animate
                     attributeName="opacity"
-                    values="0.6;0.8;0.6"
+                    values="0.7;0.9;0.7"
                     dur="4s"
                     repeatCount="indefinite"/>
             </rect>
 
-            <text x="50" y="50" font-size="64" fill="#7DCA45" opacity="0.3">$
+            <text x="50" y="50" font-size="64" fill="#7DCA45" opacity="0.5">$
                 <animate
                     attributeName="y"
                     values="50;30;50"
                     dur="3s"
                     repeatCount="indefinite"/>
             </text>
-            
-            <text x="350" y="150" font-size="72" fill="#7DCA45" opacity="0.2">$
+
+            <text x="350" y="150" font-size="72" fill="#7DCA45" opacity="0.4">$
                 <animate
                     attributeName="y"
                     values="150;120;150"
                     dur="4s"
                     repeatCount="indefinite"/>
             </text>
-            
-            <text x="200" y="300" font-size="68" fill="#7DCA45" opacity="0.25">$
+
+            <text x="200" y="300" font-size="68" fill="#7DCA45" opacity="0.45">$
                 <animate
                     attributeName="y"
                     values="300;270;300"
@@ -470,13 +483,7 @@
     <!-- Hero Section -->
     <div class="hero-container">
         <div class="hero-content">
-            <img src="https://fm-pay.com/path-to-heather-image-800.jpg"
-                 srcset="https://fm-pay.com/path-to-heather-image-400.jpg 400w,
-                         https://fm-pay.com/path-to-heather-image-600.jpg 600w,
-                         https://fm-pay.com/path-to-heather-image-800.jpg 800w"
-                 sizes="(max-width: 600px) 400px,
-                        (max-width: 900px) 600px,
-                        800px"
+            <img src="path-to-your-image.jpg"
                  alt="Profile photo of Heather Glenn"
                  loading="lazy"
                  width="200"
@@ -521,9 +528,12 @@
             </form>
         </section>
     </main>
+    <img src="heather-glenn.jpg" alt="Profile photo of Heather Glenn" ...>
 
     <!-- Footer -->
     <footer>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li
+                <li><a href="#about
+
+                        
