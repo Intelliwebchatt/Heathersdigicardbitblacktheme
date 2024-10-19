@@ -49,7 +49,7 @@
             position: relative;
         }
 
-        /* Background SVG - Updated colors */
+        /* Background SVG */
         .background-svg {
             position: fixed;
             top: 0;
@@ -58,11 +58,6 @@
             height: 100%;
             z-index: -1;
             overflow: hidden;
-        }
-
-        /* Update SVG colors inside the background-svg */
-        .background-svg svg text {
-            fill: var(--primary-color);
         }
 
         /* Header */
@@ -95,10 +90,11 @@
         }
 
         nav ul li a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
+            text-decoration: none;
         }
 
-        /* Hero Section - Updated */
+        /* Hero Section */
         .hero-container {
             position: relative;
             min-height: 100vh;
@@ -106,6 +102,7 @@
             align-items: center;
             justify-content: center;
             background: rgba(0, 0, 0, 0.8);
+            font-family: 'Poppins', sans-serif;
             z-index: 1;
             padding: 2rem;
         }
@@ -127,7 +124,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 3rem;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 4px rgba(125, 202, 69, 0.2);
             opacity: 0;
             animation: slideUp 1s forwards;
         }
@@ -137,6 +134,7 @@
             margin-bottom: 0.5rem;
             opacity: 0;
             animation: slideUp 1s forwards 0.3s;
+            color: var(--primary-color);
         }
 
         .company-name {
@@ -145,6 +143,7 @@
             margin-bottom: 0.5rem;
             opacity: 0;
             animation: slideUp 1s forwards 0.6s;
+            color: var(--primary-color);
         }
 
         .tagline {
@@ -193,6 +192,7 @@
 
         .hero-button:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 15px var(--primary-color);
         }
 
         @keyframes slideUp {
@@ -206,7 +206,7 @@
             }
         }
 
-        /* Main Content Sections */
+        /* Main Content */
         main {
             max-width: 100%;
             padding: 2rem 0;
@@ -239,9 +239,8 @@
 
         #services li {
             padding: 0.5rem 0;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--primary-color);
             font-size: 1.1rem;
-            color: var(--text-color);
         }
 
         #services li:last-child {
@@ -254,7 +253,7 @@
             margin-right: 0.5rem;
         }
 
-        /* Form Updates */
+        /* Contact Form */
         form {
             display: grid;
             gap: 1rem;
@@ -282,6 +281,7 @@
             cursor: pointer;
             border-radius: 4px;
             transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
 
         button[type="submit"]:hover {
@@ -289,7 +289,7 @@
             box-shadow: 0 0 10px var(--primary-color);
         }
 
-        /* Footer Update */
+        /* Footer */
         footer {
             background: var(--secondary-color);
             border-top: 2px solid var(--primary-color);
@@ -313,59 +313,72 @@
         }
 
         footer nav ul li a {
-            color: var(--text-color);
+            color: var(--primary-color);
             text-decoration: none;
         }
 
         footer nav ul li a:hover {
+            color: var(--accent-color);
             text-decoration: underline;
         }
 
-        /* Links Update */
-        a {
-            color: var(--primary-color);
-            transition: color 0.3s ease;
+        .hidden {
+            display: none;
         }
 
-        a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Testimonials Update */
+        /* Testimonials */
         blockquote {
             border-left: 3px solid var(--primary-color);
             padding-left: 1rem;
             margin: 1rem 0;
-            color: var(--text-color);
+            background: rgba(125, 202, 69, 0.1);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
         }
 
         cite {
             color: var(--primary-color);
             font-style: italic;
+            display: block;
+            margin-top: 0.5rem;
         }
 
-        /* SVG Background Update */
-        .background-svg rect[fill="#E8F5E9"] {
-            fill: var(--background-color);
+        /* Responsive Design */
+        @media (max-width: 840px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            button[type="submit"] {
+                width: 100%;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <!-- [Rest of the HTML remains the same] -->
     <!-- Background SVG -->
     <div class="background-svg">
-        <!-- Ensure the SVG fills the entire container -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
             <defs>
-                <!-- Dollar symbol pattern -->
                 <pattern id="money-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-                    <!-- Larger dollar signs at different positions and sizes -->
-                    <text x="20" y="60" font-size="48" fill="var(--primary-color)" opacity="0.3">$</text>
-                    <text x="80" y="100" font-size="56" fill="var(--primary-color)" opacity="0.2">$</text>
-                    <text x="40" y="40" font-size="42" fill="var(--primary-color)" opacity="0.25">$</text>
+                    <text x="20" y="60" font-size="48" fill="#7DCA45" opacity="0.3">$</text>
+                    <text x="80" y="100" font-size="56" fill="#7DCA45" opacity="0.2">$</text>
+                    <text x="40" y="40" font-size="42" fill="#7DCA45" opacity="0.25">$</text>
                 </pattern>
                 
-                <!-- Animation for floating effect -->
                 <animateTransform
                     xlink:href="#money-pattern"
                     attributeName="patternTransform"
@@ -376,10 +389,8 @@
                     repeatCount="indefinite"/>
             </defs>
 
-            <!-- Background rectangle with gradient -->
-            <rect width="100%" height="100%" fill="var(--background-color)"/>
+            <rect width="100%" height="100%" fill="#000000"/>
             
-            <!-- Animated dollar symbols layer -->
             <rect width="100%" height="100%" fill="url(#money-pattern)">
                 <animate
                     attributeName="opacity"
@@ -388,8 +399,7 @@
                     repeatCount="indefinite"/>
             </rect>
 
-            <!-- Floating dollar signs for additional visual interest -->
-            <text x="50" y="50" font-size="64" fill="var(--primary-color)" opacity="0.3">$
+            <text x="50" y="50" font-size="64" fill="#7DCA45" opacity="0.3">$
                 <animate
                     attributeName="y"
                     values="50;30;50"
@@ -397,7 +407,7 @@
                     repeatCount="indefinite"/>
             </text>
             
-            <text x="350" y="150" font-size="72" fill="var(--primary-color)" opacity="0.2">$
+            <text x="350" y="150" font-size="72" fill="#7DCA45" opacity="0.2">$
                 <animate
                     attributeName="y"
                     values="150;120;150"
@@ -405,7 +415,7 @@
                     repeatCount="indefinite"/>
             </text>
             
-            <text x="200" y="300" font-size="68" fill="var(--primary-color)" opacity="0.25">$
+            <text x="200" y="300" font-size="68" fill="#7DCA45" opacity="0.25">$
                 <animate
                     attributeName="y"
                     values="300;270;300"
@@ -415,6 +425,18 @@
         </svg>
     </div>
 
-    <!-- Rest of your HTML content remains the same -->
-</body>
-</html>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about" aria-label="Learn more about Heather Glenn">About</a></li>
+                <li><a href="#services" aria-label="Explore our services">Services</a></li>
+                <li><a href="#contact" aria-label="Contact Heather Glenn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero-container">
+        <div class="hero-content">
+            <img src="https://fm-pay.com/path-to-heather-image.jpg" alt="Profile photo of Heather Glenn" loading="lazy" width="200" height="200" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 4px solid var(--primary-color); box-shadow: 0 4px 8px rgba(125, 202, 69, 0.3);">
